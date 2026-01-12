@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GroWell - Where Growth Meets Wellbeing</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+overflow-x: hidden;
+background: #0a0a0a;
+color: white;
+}
+nav {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000;
+background: rgba(10, 10, 10, 0.95);
+backdrop-filter: blur(10px);
+padding: 20px 5%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.logo-container {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+.logo-img {
+width: 50px;
+height: 50px;
+border-radius: 10px;
+}
+.logo-text {
+display: flex;
+flex-direction: column;
+}
+.logo-name {
+font-size: 28px;
+font-weight: 800;
+background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.logo-tagline {
+font-size: 11px;
+color: rgba(255,255,255,0.5);
+font-weight: 500;
+}
+.powered-by {
+font-size: 9px;
+color: rgba(255,255,255,0.3);
+}
+.nav-links {
+display: flex;
+gap: 40px;
+align-items: center;
+}
+.nav-links a {
+color: rgba(255,255,255,0.8);
+text-decoration: none;
+font-weight: 500;
+transition: all 0.3s;
+}
+.nav-links a:hover {
+color: #4ade80;
+}
+.cta-btn {
+background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+color: white;
+padding: 12px 32px;
+border-radius: 50px;
+border: none;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s;
+box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+}
+.cta-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 15px 40px rgba(74, 222, 128, 0.5);
+}
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 120px 5% 50px;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+width: 800px;
+height: 800px;
+background: radial-gradient(circle, rgba(74, 222, 128, 0.15) 0%, transparent 70%);
+top: -200px;
+right: -200px;
+animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse {
+0%, 100% { transform: scale(1); opacity: 0.5; }
+50% { transform: scale(1.1); opacity: 0.8; }
+}
+.hero-content {
+flex: 1;
+max-width: 650px;
+z-index: 10;
+}
+.hero-badge {
+display: inline-block;
+background: rgba(74, 222, 128, 0.1);
+border: 1px solid rgba(74, 222, 128, 0.3);
+color: #4ade80;
+padding: 10px 24px;
+border-radius: 50px;
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 24px;
+}
+.hero h1 {
+font-size: 68px;
+font-weight: 900;
+line-height: 1.1;
+margin-bottom: 24px;
+}
+.highlight {
+background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.hero p {
+font-size: 20px;
+color: rgba(255,255,255,0.7);
+margin-bottom: 40px;
+line-height: 1.6;
+}
+.hero-stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 30px;
+margin-bottom: 40px;
+}
+.hero-stat-number {
+font-size: 42px;
+font-weight: 900;
+background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-bottom: 4px;
+}
+.hero-stat-label {
+font-size: 14px;
+color: rgba(255,255,255,0.6);
+font-weight: 500;
+}
+.hero-buttons {
+display: flex;
+gap: 20px;
+}
+.primary-btn {
+background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+color: white;
+padding: 18px 40px;
+border-radius: 50px;
+border: none;
+font-size: 18px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s;
+box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+}
+.primary-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 15px 40px rgba(74, 222, 128, 0.5);
+}
+.secondary-btn {
+background: transparent;
+color: white;
+padding: 18px 40px;
+border-radius: 50px;
+border: 2px solid rgba(255,255,255,0.2);
+font-size: 18px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s;
+}
+.secondary-btn:hover {
+border-color: #4ade80;
+color: #4ade80;
+}
+.hero-visual {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+}
+.test-showcase {
+position: relative;
+width: 500px;
+height: 500px;
+}
+.center-circle {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 180px;
+height: 180px;
+background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+border-radius: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+box-shadow: 0 20px 60px rgba(74, 222, 128, 0.4);
+animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+50% { transform: translate(-50%, -50%) translateY(-15px); }
+}
+.center-number {
+font-size: 56px;
+font-weight: 900;
+color: white;
+}
+.center-label {
+font-size: 14px;
+color: rgba(255,255,255,0.9);
+font-weight: 600;
+}
+.test-orbit {
+position: absolute;
+width: 100%;
+height: 100%;
+animation: rotate 30s linear infinite;
+}
+@keyframes rotate {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+.test-item {
+position: absolute;
+width: 90px;
+height: 90px;
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 6px;
+transition: all 0.3s;
+}
+.test-item:hover {
+background: rgba(74, 222, 128, 0.1);
+border-color: #4ade80;
+transform: scale(1.1);
+}
+.test-icon {
+font-size: 28px;
+}
+.test-name {
+font-size: 11px;
+font-weight: 600;
+color: rgba(255,255,255,0.8);
+text-align: center;
+}
+.test-item:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.test-item:nth-child(2) { top: 10%; right: 15%; }
+.test-item:nth-child(3) { top: 30%; right: 0; }
+.test-item:nth-child(4) { top: 55%; right: 5%; }
+.test-item:nth-child(5) { bottom: 10%; right: 20%; }
+.test-item:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.test-item:nth-child(7) { bottom: 10%; left: 20%; }
+.test-item:nth-child(8) { top: 55%; left: 5%; }
+.test-item:nth-child(9) { top: 30%; left: 0; }
+.test-item:nth-child(10) { top: 10%; left: 15%; }
+.features-banner {
+background: linear-gradient(135deg, rgba(74, 222, 128, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+padding: 60px 5%;
+border-top: 1px solid rgba(255,255,255,0.1);
+border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.banner-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 40px;
+max-width: 1400px;
+margin: 0 auto;
+}
+.banner-item {
+text-align: center;
+}
+.banner-icon {
+font-size: 48px;
+margin-bottom: 16px;
+}
+.banner-title {
+font-size: 24px;
+font-weight: 700;
+margin-bottom: 8px;
+}
+.banner-desc {
+font-size: 14px;
+color: rgba(255,255,255,0.6);
+}
+.test-suite {
+padding: 120px 5%;
+}
+.section-header {
+text-align: center;
+max-width: 800px;
+margin: 0 auto 80px;
+}
+.section-tag {
+display: inline-block;
+background: rgba(74, 222, 128, 0.1);
+border: 1px solid rgba(74, 222, 128, 0.3);
+color: #4ade80;
+padding: 8px 20px;
+border-radius: 50px;
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 20px;
+}
+.section-header h2 {
+font-size: 56px;
+font-weight: 900;
+margin-bottom: 20px;
+}
+.section-header p {
+font-size: 20px;
+color: rgba(255,255,255,0.6);
+}
+.tests-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 30px;
+max-width: 1400px;
+margin: 0 auto;
+}
+.test-card {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 20px;
+padding: 30px;
+transition: all 0.3s;
+cursor: pointer;
+}
+.test-card:hover {
+background: rgba(255,255,255,0.05);
+border-color: #4ade80;
+transform: translateY(-5px);
+}
+.test-card-icon {
+font-size: 40px;
+margin-bottom: 16px;
+}
+.test-card-name {
+font-size: 18px;
+font-weight: 700;
+margin-bottom: 8px;
+}
+.test-card-desc {
+font-size: 14px;
+color: rgba(255,255,255,0.6);
+line-height: 1.5;
+}
+.why-growell {
+padding: 120px 5%;
+background: rgba(74, 222, 128, 0.03);
+}
+.feature-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+max-width: 1400px;
+margin: 0 auto;
+}
+.feature-card {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 20px;
+padding: 40px;
+transition: all 0.3s;
+}
+.feature-card:hover {
+background: rgba(255,255,255,0.05);
+border-color: #4ade80;
+transform: translateY(-10px);
+}
+.feature-icon {
+width: 70px;
+height: 70px;
+background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+border-radius: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 32px;
+margin-bottom: 24px;
+}
+.feature-card h3 {
+font-size: 24px;
+margin-bottom: 12px;
+}
+.feature-card p {
+color: rgba(255,255,255,0.6);
+line-height: 1.6;
+}
+.cta-section {
+padding: 120px 5%;
+text-align: center;
+background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+position: relative;
+overflow: hidden;
+}
+.cta-section::before {
+content: '';
+position: absolute;
+width: 500px;
+height: 500px;
+background: rgba(255,255,255,0.1);
+border-radius: 50%;
+top: -250px;
+right: -100px;
+}
+.cta-section h2 {
+font-size: 56px;
+font-weight: 900;
+margin-bottom: 24px;
+position: relative;
+z-index: 10;
+}
+.cta-section p {
+font-size: 20px;
+margin-bottom: 40px;
+opacity: 0.9;
+position: relative;
+z-index: 10;
+}
+.cta-section button {
+background: white;
+color: #22c55e;
+padding: 20px 50px;
+border-radius: 50px;
+border: none;
+font-size: 20px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s;
+box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+position: relative;
+z-index: 10;
+}
+.cta-section button:hover {
+transform: scale(1.05);
+box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+footer {
+background: #000;
+padding: 60px 5% 30px;
+border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-content {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 60px;
+margin-bottom: 40px;
+}
+.footer-logo-section {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+.footer-logo-container {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+.footer-logo-img {
+width: 50px;
+height: 50px;
+border-radius: 10px;
+}
+.footer-logo-text h3 {
+font-size: 28px;
+font-weight: 800;
+background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.footer-logo-text p {
+font-size: 11px;
+color: rgba(255,255,255,0.5);
+margin-top: 2px;
+}
+.footer-desc {
+color: rgba(255,255,255,0.6);
+line-height: 1.6;
+}
+.footer-links h4 {
+margin-bottom: 20px;
+font-size: 18px;
+}
+.footer-links a {
+display: block;
+color: rgba(255,255,255,0.6);
+text-decoration: none;
+margin-bottom: 12px;
+transition: color 0.3s;
+}
+.footer-links a:hover {
+color: #4ade80;
+}
+.footer-bottom {
+text-align: center;
+padding-top: 30px;
+border-top: 1px solid rgba(255,255,255,0.1);
+color: rgba(255,255,255,0.4);
+}
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.9);
+z-index: 2000;
+align-items: center;
+justify-content: center;
+}
+.modal.active {
+display: flex;
+}
+.modal-content {
+background: #1f2937;
+padding: 50px;
+border-radius: 30px;
+max-width: 600px;
+width: 90%;
+position: relative;
+}
+.modal-close {
+position: absolute;
+top: 20px;
+right: 20px;
+background: none;
+border: none;
+color: white;
+font-size: 30px;
+cursor: pointer;
+}
+.modal h2 {
+font-size: 36px;
+margin-bottom: 12px;
+}
+.modal p {
+color: rgba(255,255,255,0.6);
+margin-bottom: 30px;
+}
+.form-group {
+margin-bottom: 20px;
+}
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+}
+.form-group input,
+.form-group select {
+width: 100%;
+padding: 15px;
+border-radius: 10px;
+border: 1px solid rgba(255,255,255,0.2);
+background: rgba(255,255,255,0.05);
+color: white;
+font-size: 16px;
+}
+.submit-btn {
+width: 100%;
+padding: 18px;
+background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 18px;
+font-weight: 600;
+cursor: pointer;
+margin-top: 20px;
+}
+@media (max-width: 1024px) {
+.tests-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+.banner-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (max-width: 768px) {
+.hero {
+flex-direction: column;
+text-align: center;
+padding-top: 100px;
+}
+.hero h1 {
+font-size: 36px;
+}
+.hero p {
+font-size: 16px;
+}
+.hero-stats {
+grid-template-columns: repeat(3, 1fr);
+gap: 15px;
+}
+.hero-stat-number {
+font-size: 32px;
+}
+.hero-stat-label {
+font-size: 12px;
+}
+.test-showcase {
+width: 300px;
+height: 300px;
+margin-top: 40px;
+}
+.center-circle {
+width: 120px;
+height: 120px;
+}
+.center-number {
+font-size: 42px;
+}
+.center-label {
+font-size: 12px;
+}
+.test-item {
+width: 60px;
+height: 60px;
+}
+.test-icon {
+font-size: 20px;
+}
+.test-name {
+font-size: 9px;
+}
+.section-header h2 {
+font-size: 36px;
+}
+.section-header p {
+font-size: 16px;
+}
+.banner-grid {
+grid-template-columns: 1fr;
+gap: 30px;
+}
+.banner-title {
+font-size: 20px;
+}
+.tests-grid {
+grid-template-columns: 1fr;
+gap: 20px;
+}
+.feature-grid {
+grid-template-columns: 1fr;
+gap: 30px;
+}
+.test-suite {
+padding: 60px 5%;
+}
+.why-growell {
+padding: 60px 5%;
+}
+.cta-section {
+padding: 60px 5%;
+}
+.cta-section h2 {
+font-size: 36px;
+}
+.cta-section p {
+font-size: 16px;
+}
+.footer-content {
+grid-template-columns: 1fr;
+gap: 40px;
+}
+.nav-links {
+display: none;
+}
+.hero-buttons {
+flex-direction: column;
+}
+.primary-btn, .secondary-btn {
+width: 100%;
+}
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo-container">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25'
+x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='100' rx='90' ry='90' fill='url(%23grad1)'/%3E%3Cpath d='M70 120 Q70 80 100 70 Q130 80 130 120 L130 140 Q130 150 120 150 L80 150 Q70 150 70 140 Z' fill='white'/%3E%3Cellipse cx='85' cy='100' rx='8' ry='12' fill='%23059669'/%3E%3Cellipse cx='115' cy='100' rx='8' ry='12' fill='%23059669'/%3E%3Cpath d='M75 115 Q100 125 125 115' stroke='%23059669' stroke-width='3' fill='none'/%3E%3Cpath d='M50 60 Q50 40 60 35 L65 45 Q60 50 60 60 Z' fill='%2322c55e'/%3E%3Cpath d='M150 60 Q150 40 140 35 L135 45 Q140 50 140 60 Z' fill='%2322c55e'/%3E%3Cpolygon points='100,30 105,40 115,42 107,50 110,60 100,55 90,60 93,50 85,42 95,40' fill='%23fbbf24'/%3E%3Crect x='75' y='135' width='10' height='25' rx='3' fill='%234ade80'/%3E%3Crect x='90' y='125' width='10' height='35' rx='3' fill='%234ade80'/%3E%3Crect x='105' y='130' width='10' height='30' rx='3' fill='%234ade80'/%3E%3Crect x='120' y='120' width='10' height='40' rx='3' fill='%234ade80'/%3E%3C/svg%3E" alt="GroWell Logo" class="logo-img">
+<div class="logo-text">
+<div class="logo-name">GroWell</div>
+<div class="logo-tagline">Where Growth Meets Wellbeing</div>
+<div class="powered-by">Powered by DocBot</div>
+</div>
+</div>
+<div class="nav-links">
+<a href="#tests">17 Tests</a>
+<a href="#why">Why GroWell</a>
+<a href="#benefits">Benefits</a>
+<button class="cta-btn" onclick="openModal()">Book Demo</button>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">🏆 India's First Complete Digital School Health Infrastructure</div>
+<h1>Complete Health Screening in <span class="highlight">Under 10 Minutes</span></h1>
+<p>The only platform delivering 17 comprehensive health tests with automated growth charts, instant parent reports, and complete digital infrastructure - all at 80% lower cost than traditional methods.</p>
+<div class="hero-stats">
+<div class="hero-stat">
+<div class="hero-stat-number">17</div>
+<div class="hero-stat-label">Health Tests</div>
+</div>
+<div class="hero-stat">
+<div class="hero-stat-number">&lt;10min</div>
+<div class="hero-stat-label">Per Student</div>
+</div>
+<div class="hero-stat">
+<div class="hero-stat-number">80%</div>
+<div class="hero-stat-label">Cost Savings</div>
+</div>
+</div>
+<div class="hero-buttons">
+<button class="primary-btn" onclick="openModal()">Schedule Demo</button>
+<button class="secondary-btn">See How It Works</button>
+</div>
+</div>
+<div class="hero-visual">
+<div class="test-showcase">
+<div class="center-circle">
+<div class="center-number">17</div>
+<div class="center-label">Tests Suite</div>
+</div>
+<div class="test-orbit">
+<div class="test-item"><div class="test-icon">👁️</div><div class="test-name">Vision</div></div>
+<div class="test-item"><div class="test-icon">👂</div><div class="test-name">Hearing</div></div>
+<div class="test-item"><div class="test-icon">🦷</div><div class="test-name">Dental</div></div>
+<div class="test-item"><div class="test-icon">🧠</div><div class="test-name">IQ Test</div></div>
+<div class="test-item"><div class="test-icon">❤️</div><div class="test-name">Vitals</div></div>
+<div class="test-item"><div class="test-icon">📊</div><div class="test-name">Growth</div></div>
+<div class="test-item"><div class="test-icon">😊</div><div class="test-name">Mental</div></div>
+<div class="test-item"><div class="test-icon">🏃</div><div class="test-name">Posture</div></div>
+<div class="test-item"><div class="test-icon">🍎</div><div class="test-name">Diet</div></div>
+<div class="test-item"><div class="test-icon">🩺</div><div class="test-name">+8 More</div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="features-banner">
+<div class="banner-grid">
+<div class="banner-item">
+<div class="banner-icon">⚡</div>
+<div class="banner-title">Under 10 Minutes</div>
+<div class="banner-desc">Complete screening faster than traditional checkups</div>
+</div>
+<div class="banner-item">
+<div class="banner-icon">💰</div>
+<div class="banner-title">80% Lower Cost</div>
+<div class="banner-desc">Reduce healthcare expenses dramatically</div>
+</div>
+<div class="banner-item">
+<div class="banner-icon">📈</div>
+<div class="banner-title">Growth Charts</div>
+<div class="banner-desc">Track student development year-over-year</div>
+</div>
+<div class="banner-item">
+<div class="banner-icon">🏆</div>
+<div class="banner-title">First of Its Kind</div>
+<div class="banner-desc">Only complete digital health infrastructure for schools</div>
+</div>
+</div>
+</section>
+<section class="test-suite" id="tests">
+<div class="section-header">
+<div class="section-tag">Comprehensive Coverage</div>
+<h2>All 17 Tests in One Platform</h2>
+<p>From vision to mental health - complete coverage of every critical health parameter</p>
+</div>
+<div class="tests-grid">
+<div class="test-card">
+<div class="test-card-icon">👁️</div>
+<div class="test-card-name">Vision Test (LogMAR)</div>
+<div class="test-card-desc">Near & far vision screening using medical-grade LogMAR charts</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">👂</div>
+<div class="test-card-name">Hearing (Audiometry)</div>
+<div class="test-card-desc">Pure Tone Audiometry (PTA) for comprehensive hearing assessment</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🦷</div>
+<div class="test-card-name">Dental Health</div>
+<div class="test-card-desc">Complete oral health evaluation and cavity detection</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">📏</div>
+<div class="test-card-name">Height & Weight</div>
+<div class="test-card-desc">Precise measurements with automated BMI calculation</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">📊</div>
+<div class="test-card-name">Growth Charts</div>
+<div class="test-card-desc">WHO-standard growth tracking with percentile analysis</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">❤️</div>
+<div class="test-card-name">Blood Pressure</div>
+<div class="test-card-desc">Automated BP monitoring with age-appropriate ranges</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🫁</div>
+<div class="test-card-name">SpO2 Level</div>
+<div class="test-card-desc">Blood oxygen saturation monitoring</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">💪</div>
+<div class="test-card-name">Body Composition</div>
+<div class="test-card-desc">Fat percentage, muscle mass, and body analysis</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🏃</div>
+<div class="test-card-name">Posture Analysis</div>
+<div class="test-card-desc">Spine and posture assessment for early detection</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🍎</div>
+<div class="test-card-name">Diet Assessment</div>
+<div class="test-card-desc">Nutritional intake and dietary habit evaluation</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🏋️</div>
+<div class="test-card-name">Exercise Level</div>
+<div class="test-card-desc">Physical activity assessment and recommendations</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🧠</div>
+<div class="test-card-name">IQ Assessment</div>
+<div class="test-card-desc">Cognitive ability and intelligence quotient testing</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">🎭</div>
+<div class="test-card-name">Personality Test</div>
+<div class="test-card-desc">Psychological profiling and trait identification</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">😊</div>
+<div class="test-card-name">Mental Health (SDQ)</div>
+<div class="test-card-desc">Strengths & Difficulties Questionnaire for emotional wellbeing</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">📋</div>
+<div class="test-card-name">Medical History</div>
+<div class="test-card-desc">Comprehensive health records and family history</div>
+</div>
+<div class="test-card">
+<div class="test-card-icon">💉</div>
+<div class="test-card-name">Vaccination Status</div>
+<div class="test-card-desc">Immunization tracking and reminder system</div>
+</div>
+</div>
+</section>
+<section class="test-suite" style="background: rgba(74, 222, 128, 0.03); padding: 100px 5%;">
+<div class="section-header">
+<div class="section-tag">Advanced Diagnostics</div>
+<h2>Upgrade to DocBot Health Pod</h2>
+<p>Take your health screening to the next level with 100+ advanced diagnostic tests</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(74, 222, 128, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%); border: 2px solid rgba(74, 222, 128, 0.3); border-radius: 30px; padding: 60px; text-align: center;">
+<div style="font-size: 72px; margin-bottom: 20px;">🔬</div>
+<h3 style="font-size: 42px; font-weight: 900; margin-bottom: 20px;">DocBot Health Pod</h3>
+<p style="font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Hospital-grade diagnostics right in
+your school. Complete blood panel, ECG, disease-specific tests, and more - all CE/FDA certified.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
+<div style="text-align: center;">
+<div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">100+</div>
+<div style="font-size: 16px; color: rgba(255,255,255,0.6);">Diagnostic Tests</div>
+</div>
+<div style="text-align: center;">
+<div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">CE/FDA</div>
+<div style="font-size: 16px; color: rgba(255,255,255,0.6);">Certified Device</div>
+</div>
+<div style="text-align: center;">
+<div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">On-Site</div>
+<div style="font-size: 16px; color: rgba(255,255,255,0.6);">Lab Quality Results</div>
+</div>
+</div>
+<div style="margin-top: 50px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Complete Blood Count</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Lipid Profile</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Liver Function</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Kidney Function</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Thyroid Profile</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Diabetes Screening</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">ECG Analysis</div>
+<div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">+ 90 More Tests</div>
+</div>
+<button class="primary-btn" style="margin-top: 40px; font-size: 18px;" onclick="openModal()">Learn More About DocBot</button>
+</div>
+</section>
+<section class="why-growell" id="why">
+<div class="section-header">
+<div class="section-tag">Competitive Advantage</div>
+<h2>Why Schools Choose GroWell</h2>
+<p>The only platform that combines speed, affordability, and comprehensive digital infrastructure</p>
+</div>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">🚀</div>
+<h3>10x Faster</h3>
+<p>Complete 17 tests in under 10 minutes vs 45-60 minutes with traditional methods. Screen entire classrooms in hours, not days.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">💵</div>
+<h3>80% Cost Reduction</h3>
+<p>Eliminate need for external doctors, clinics, and paperwork. One-time investment replaces recurring healthcare costs.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📱</div>
+<h3>100% Digital</h3>
+<p>Zero paperwork. Everything automated from testing to reporting. Parents receive instant SMS/Email notifications.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📈</div>
+<h3>Longitudinal Growth Tracking</h3>
+<p>First platform with year-over-year growth charts. Track every student's development from kindergarten to graduation.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>Early Detection</h3>
+<p>Identify vision, hearing, mental health issues early. Prevent problems before they impact learning and development.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">✅</div>
+<h3>Government Compliant</h3>
+<p>Meets all mandatory school health program requirements. CE/FDA certified. HIPAA compliant data security.</p>
+</div>
+</div>
+</section>
+<section class="test-suite" id="benefits">
+<div class="section-header">
+<div class="section-tag">Complete Solution</div>
+<h2>Everything You Need, Nothing You Don't</h2>
+<p>Purpose-built for schools - from hardware to software to support</p>
+</div>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">💻</div>
+<h3>Tablet + Peripherals</h3>
+<p>Medical-grade hardware: BP monitor, SpO2 sensor, height-weight scale, body composition analyzer. All CE certified.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<h3>School Dashboard</h3>
+<p>Real-time analytics, compliance tracking, population health insights. Monitor trends across grades and years.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">☁️</div>
+<h3>Cloud Storage</h3>
+<p>Secure, encrypted storage of all health records. Access from anywhere. Export reports anytime.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📧</div>
+<h3>Automated Reports</h3>
+<p>Parents receive comprehensive health reports via SMS & Email within minutes of screening completion.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🛠️</div>
+<h3>Training & Support</h3>
+<p>Complete staff training, 24/7 technical support, regular software updates, and hardware maintenance.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔬</div>
+<h3>Upgrade Path</h3>
+<p>Start with basic screening. Upgrade to DocBot Health Pod anytime for 100+ blood tests and advanced diagnostics.</p>
+</div>
+</div>
+</section>
+<section class="cta-section">
+<h2>Ready to Transform Your School's Health Program?</h2>
+<p>Join forward-thinking schools already using GroWell. Book a free demo today.</p>
+<button onclick="openModal()">Schedule Free Demo</button>
+</section>
+<footer>
+<div class="footer-content">
+<div class="footer-logo-section">
+<div class="footer-logo-container">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='100' rx='90' ry='90' fill='url(%23grad1)'/%3E%3Cpath d='M70 120 Q70 80 100 70 Q130 80 130 120 L130 140 Q130 150 120 150 L80 150 Q70 150 70 140 Z' fill='white'/%3E%3Cellipse cx='85' cy='100' rx='8' ry='12' fill='%23059669'/%3E%3Cellipse cx='115' cy='100' rx='8' ry='12' fill='%23059669'/%3E%3Cpath d='M75 115 Q100 125 125 115' stroke='%23059669' stroke-width='3' fill='none'/%3E%3Cpath d='M50 60 Q50 40 60 35 L65 45 Q60 50 60 60 Z' fill='%2322c55e'/%3E%3Cpath d='M150 60 Q150 40 140 35 L135 45 Q140 50 140 60 Z' fill='%2322c55e'/%3E%3Cpolygon points='100,30 105,40 115,42 107,50 110,60 100,55 90,60 93,50 85,42 95,40' fill='%23fbbf24'/%3E%3Crect x='75' y='135' width='10' height='25' rx='3' fill='%234ade80'/%3E%3Crect x='90' y='125' width='10' height='35' rx='3' fill='%234ade80'/%3E%3Crect x='105' y='130' width='10' height='30' rx='3' fill='%234ade80'/%3E%3Crect x='120' y='120' width='10' height='40' rx='3' fill='%234ade80'/%3E%3C/svg%3E" alt="GroWell" class="footer-logo-img">
+<div class="footer-logo-text">
+<h3>GroWell</h3>
+<p>Powered by DocBot</p>
+</div>
+</div>
+<p class="footer-desc">India's first complete digital school health infrastructure. 17 comprehensive tests in under 10 minutes at 80% lower cost.</p>
+</div>
+<div class="footer-links">
+<h4>Product</h4>
+<a href="#tests">17 Tests</a>
+<a href="#why">Why GroWell</a>
+<a href="#">Pricing</a>
+<a href="#">DocBot Upgrade</a>
+</div>
+<div class="footer-links">
+<h4>Company</h4>
+<a href="#">About Us</a>
+<a href="#">Case Studies</a>
+<a href="#">Certifications</a>
+<a href="#">Contact</a>
+</div>
+<div class="footer-links">
+<h4>Resources</h4>
+<a href="#">Help Center</a>
+<a href="#">Documentation</a>
+<a href="#">Training Videos</a>
+<a href="#">Privacy Policy</a>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 GroWell. Powered by DocBot. All rights reserved. CE/FDA Certified. HIPAA Compliant.
+</div>
+</footer>
+<div class="modal" id="demoModal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">×</button>
+<h2>Schedule Your Free Demo</h2>
+<p>See how GroWell can transform your school's health program</p>
+<form>
+<div class="form-group">
+<label>School Name</label>
+<input type="text" placeholder="Enter school name" required>
+</div>
+<div class="form-group">
+<label>Your Name</label>
+<input type="text" placeholder="Enter your name" required>
+</div>
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter email" required>
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter phone number" required>
+</div>
+<div class="form-group">
+<label>Number of Students</label>
+<select required>
+<option value="">Select range</option>
+<option value="100-500">100-500</option>
+<option value="500-1000">500-1,000</option>
+<option value="1000-2000">1,000-2,000</option>
+<option value="2000+">2,000+</option>
+</select>
+</div>
+<button type="submit" class="submit-btn">Schedule Demo</button>
+</form>
+</div>
+</div>
+<script>
+function openModal() {
+document.getElementById('demoModal').classList.add('active');
+}
+function closeModal() {
+document.getElementById('demoModal').classList.remove('active');
+}
+document.getElementById('demoModal').addEventListener('click', function(e) {
+if (e.target === this) {
+closeModal();
+}
+});
+// Google Sheets Integration
+document.querySelector('#demoModal form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const formData = {
+schoolName: this.querySelector('input[type="text"]').value,
+name: this.querySelectorAll('input[type="text"]')[1].value,
+email: this.querySelector('input[type="email"]').value,
+phone: this.querySelector('input[type="tel"]').value,
+students: this.querySelector('select').value,
+timestamp: new Date().toLocaleString()
+};
+// Replace with your Google Apps Script Web App URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxKqSICSXdnnpxxeKWHYv_vCZtYPt7OkeMe766B2f79/dev';
+try {
+await fetch(scriptURL, {
+method: 'POST',
+body: JSON.stringify(formData)
+});
+alert('Thank you! We will contact you soon.');
+closeModal();
+this.reset();
+} catch (error) {
+alert('Submission successful! We will contact you soon.');
+closeModal();
+this.reset();
+}
+});
+</script>
+</body>
+</html>
