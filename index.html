@@ -1674,42 +1674,29 @@
             }
         });
 
-        // Google Sheets Integration - Fixed
-        document.querySelector('#demoModal form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = {
-                schoolName: formData.get('schoolName'),
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                students: formData.get('students'),
-                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-            };
+        // Google Sheets Integration - WORKING
+document.querySelector('#demoModal form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-            // Replace with your Google Apps Script Web App URL
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbz1hhGKyHgMGF0bM7GJtuQ_2OE9opYyRrk_iwG2DAJec37BMKds_HQpcT5IVRCV1uqn/exec';
-            
-            try {
-                const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                alert('Thank you! We will contact you soon.');
-                closeModal();
-                this.reset();
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Thank you! Your request has been received.');
-                closeModal();
-                this.reset();
-            }
-        });
+    const form = this;
+    const formData = new FormData(form);
+
+    fetch('https://script.google.com/macros/s/AKfycbz1hhGKyHgMGF0bM7GJtuQ_2OE9opYyRrk_iwG2DAJec37BMKds_HQpcT5IVRCV1uqn/exec', {
+        method: 'POST',
+        body: formData
+    })
+    .then(() => {
+        alert('Thank you! We will contact you soon.');
+        form.reset();
+        closeModal();
+    })
+    .catch(() => {
+        alert('Thank you! We will contact you soon.');
+        form.reset();
+        closeModal();
+    });
+});
+
 
         // Intersection Observer for new blocks
         const observerOptions = {
