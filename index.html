@@ -969,7 +969,7 @@
             </div>
         </div>
         <div class="nav-links">
-            <a href="#tests">17 Tests</a>
+            <a href="#tests">Tests</a>
             <a href="#why">Why GroWell</a>
             <a href="#benefits">Benefits</a>
             <button class="cta-btn" onclick="openModal()">Book Demo</button>
@@ -1374,7 +1374,7 @@ document.querySelector('#demoModal form').addEventListener('submit', function (e
     data.append("students", form.querySelector('select').value);
     data.append("timestamp", new Date().toISOString());
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxTXDTTbibDIP6XMKY3PMqEPkzDCQrsC-NPQGGs6GzDFkgCpYkDgtepXKT4NrTbLwsIsA/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz1hhGKyHgMGF0bM7GJtuQ_2OE9opYyRrk_iwG2DAJec37BMKds_HQpcT5IVRCV1uqn/exec";
 
     fetch(scriptURL, {
         method: "POST",
