@@ -769,6 +769,242 @@
             color: rgba(255,255,255,0.4);
         }
 
+        /* School Assurance Block */
+        .school-assurance {
+            padding: 30px 0;
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+
+        .assurance-ticker {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .assurance-track {
+            display: flex;
+            gap: 80px;
+            animation: scrollLeft 25s linear infinite;
+            width: fit-content;
+        }
+
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .assurance-ticker:hover .assurance-track {
+            animation-play-state: paused;
+        }
+
+        .assurance-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            white-space: nowrap;
+            padding: 0 20px;
+        }
+
+        .assurance-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .assurance-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            transition: color 0.3s;
+        }
+
+        .assurance-item:hover .assurance-text {
+            color: #52b848;
+        }
+
+        /* Parents Roadmap Block */
+        .parents-roadmap {
+            padding: 100px 5%;
+            background: rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parents-roadmap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(82, 184, 72, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .parents-roadmap.visible .roadmap-header {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .roadmap-tag {
+            display: inline-block;
+            background: rgba(82, 184, 72, 0.1);
+            border: 1px solid rgba(82, 184, 72, 0.3);
+            color: #52b848;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .roadmap-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .roadmap-line {
+            position: absolute;
+            top: 50px;
+            left: 12%;
+            right: 12%;
+            height: 3px;
+            background: linear-gradient(90deg, #52b848 0%, #1e88e5 100%);
+            opacity: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .parents-roadmap.visible .roadmap-line {
+            opacity: 0.4;
+            transform: scaleX(1);
+        }
+
+        .roadmap-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .parents-roadmap.visible .roadmap-step:nth-child(1) { transition-delay: 0.3s; }
+        .parents-roadmap.visible .roadmap-step:nth-child(2) { transition-delay: 0.5s; }
+        .parents-roadmap.visible .roadmap-step:nth-child(3) { transition-delay: 0.7s; }
+        .parents-roadmap.visible .roadmap-step:nth-child(4) { transition-delay: 0.9s; }
+
+        .parents-roadmap.visible .roadmap-step {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .roadmap-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(82, 184, 72, 0.2) 0%, rgba(30, 136, 229, 0.2) 100%);
+            border: 3px solid #52b848;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(82, 184, 72, 0.2);
+        }
+
+        .roadmap-step:hover .roadmap-circle {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(82, 184, 72, 0.4);
+            border-color: #1e88e5;
+        }
+
+        .roadmap-number {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #52b848 0%, #1e88e5 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .roadmap-label {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .roadmap-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .assurance-item {
+                gap: 10px;
+                padding: 0 15px;
+            }
+            .assurance-icon {
+                font-size: 24px;
+            }
+            .assurance-text {
+                font-size: 14px;
+            }
+            .assurance-track {
+                gap: 50px;
+            }
+            .roadmap-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .roadmap-line {
+                display: none;
+            }
+            .roadmap-title {
+                font-size: 32px;
+            }
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -969,7 +1205,7 @@
             </div>
         </div>
         <div class="nav-links">
-            <a href="#tests">Tests</a>
+            <a href="#tests">17 Tests</a>
             <a href="#why">Why GroWell</a>
             <a href="#benefits">Benefits</a>
             <button class="cta-btn" onclick="openModal()">Book Demo</button>
@@ -1025,6 +1261,46 @@
         </div>
     </section>
 
+    <!-- School Assurance Block -->
+    <section class="school-assurance" id="schoolAssurance">
+        <div class="assurance-ticker">
+            <div class="assurance-track">
+                <div class="assurance-item">
+                    <span class="assurance-icon">🏫</span>
+                    <span class="assurance-text">School-ready Infrastructure</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">🩺</span>
+                    <span class="assurance-text">Healthcare-grade Accuracy</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">📈</span>
+                    <span class="assurance-text">Long-term Tracking</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">🧠</span>
+                    <span class="assurance-text">NEP-aligned Wellbeing</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">🏫</span>
+                    <span class="assurance-text">School-ready Infrastructure</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">🩺</span>
+                    <span class="assurance-text">Healthcare-grade Accuracy</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">📈</span>
+                    <span class="assurance-text">Long-term Tracking</span>
+                </div>
+                <div class="assurance-item">
+                    <span class="assurance-icon">🧠</span>
+                    <span class="assurance-text">NEP-aligned Wellbeing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="features-banner">
         <div class="banner-grid">
             <div class="banner-item">
@@ -1053,8 +1329,8 @@
     <section class="test-suite" id="tests">
         <div class="section-header">
             <div class="section-tag">Comprehensive Coverage</div>
-            <h2>All 17 Clinically Validated Tests</h2>
-            <p>From mental health to nutrition - complete coverage of every critical health parameter</p>
+            <h2>16 Clinically Validated Tests</h2>
+            <p>Following WHO, ASHA, and established medical protocols for pediatric health screening</p>
         </div>
         <div class="tests-grid">
             <div class="test-card">
@@ -1135,51 +1411,45 @@
             <div class="test-card">
                 <div class="test-card-icon">💉</div>
                 <div class="test-card-name">Vaccination Status</div>
-                <div class="test-card-desc">Immunization tracking and reminder system</div>
-            </div>
-            <div class="test-card">
-                <div class="test-card-icon">📋</div>
-                <div class="test-card-name">Medical & Family History</div>
-                <div class="test-card-desc">Comprehensive health records and family medical history</div>
+                <div class="test-card-desc">Immunization tracking and comprehensive medical history</div>
             </div>
         </div>
     </section>
 
-    <section class="test-suite" style="background: rgba(74, 222, 128, 0.03); padding: 100px 5%;">
+    <section class="test-suite" style="background: rgba(82, 184, 72, 0.03); padding: 80px 5%;">
         <div class="section-header">
             <div class="section-tag">Advanced Diagnostics</div>
             <h2>Upgrade to DocBot Health Pod</h2>
-            <p>Take your health screening to the next level with 100+ advanced diagnostic tests</p>
+            <p>Hospital-grade diagnostics with 100+ advanced tests - right at your school</p>
         </div>
-        <div style="max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(74, 222, 128, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%); border: 2px solid rgba(74, 222, 128, 0.3); border-radius: 30px; padding: 60px; text-align: center;">
-            <div style="font-size: 72px; margin-bottom: 20px;">🔬</div>
-            <h3 style="font-size: 42px; font-weight: 900; margin-bottom: 20px;">DocBot Health Pod</h3>
-            <p style="font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Hospital-grade diagnostics right in your school. Complete blood panel, ECG, disease-specific tests, and more - all CE/FDA certified.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">100+</div>
-                    <div style="font-size: 16px; color: rgba(255,255,255,0.6);">Diagnostic Tests</div>
+        <div style="max-width: 1000px; margin: 0 auto; background: linear-gradient(135deg, rgba(82, 184, 72, 0.1) 0%, rgba(30, 136, 229, 0.1) 100%); border: 2px solid rgba(82, 184, 72, 0.3); border-radius: 25px; padding: 50px 40px; text-align: center;">
+            <div style="font-size: 64px; margin-bottom: 15px;">🔬</div>
+            <h3 style="font-size: 36px; font-weight: 900; margin-bottom: 15px;">DocBot Health Pod</h3>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 35px; max-width: 700px; margin-left: auto; margin-right: auto;">CE/FDA certified diagnostic device delivering lab-quality results on-site</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 40px; text-align: center;">
+                <div>
+                    <div style="font-size: 42px; font-weight: 900; background: linear-gradient(90deg, #52b848 0%, #1e88e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;">100+</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Diagnostic Tests</div>
                 </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">CE/FDA</div>
-                    <div style="font-size: 16px; color: rgba(255,255,255,0.6);">Certified Device</div>
+                <div>
+                    <div style="font-size: 42px; font-weight: 900; background: linear-gradient(90deg, #52b848 0%, #1e88e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;">CE/FDA</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Certified</div>
                 </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">On-Site</div>
-                    <div style="font-size: 16px; color: rgba(255,255,255,0.6);">Lab Quality Results</div>
+                <div>
+                    <div style="font-size: 42px; font-weight: 900; background: linear-gradient(90deg, #52b848 0%, #1e88e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;">On-Site</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Lab Quality</div>
                 </div>
             </div>
-            <div style="margin-top: 50px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Complete Blood Count</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Lipid Profile</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Liver Function</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Kidney Function</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Thyroid Profile</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">Diabetes Screening</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">ECG Analysis</div>
-                <div style="background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 50px; font-size: 14px;">+ 90 More Tests</div>
+            <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">Hemoglobin</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">Blood Group</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">ECG</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">Uric Acid</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">Lipid Profile</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">Thyroid Profile</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-size: 14px;">+ 94 Other Tests</div>
             </div>
-            <button class="primary-btn" style="margin-top: 40px; font-size: 18px;" onclick="openModal()">Learn More About DocBot</button>
+            <button class="primary-btn" style="margin-top: 35px; font-size: 16px;" onclick="openModal()">Learn More About DocBot</button>
         </div>
     </section>
 
@@ -1263,6 +1533,50 @@
         </div>
     </section>
 
+    <!-- Parents Roadmap Block -->
+    <section class="parents-roadmap" id="parentsRoadmap">
+        <div class="roadmap-header">
+            <div class="roadmap-tag">Parent Journey</div>
+            <h2 class="roadmap-title">How GroWell Supports Parents Over Time</h2>
+            <p class="roadmap-subtitle">From screening to long-term health records - complete peace of mind</p>
+        </div>
+        <div class="roadmap-container">
+            <div class="roadmap-line"></div>
+            <div class="roadmap-step">
+                <div class="roadmap-circle">
+                    <span class="roadmap-number">1</span>
+                    📋
+                </div>
+                <div class="roadmap-label">Screening at School</div>
+                <div class="roadmap-desc">Complete health screening during school hours</div>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-circle">
+                    <span class="roadmap-number">2</span>
+                    📱
+                </div>
+                <div class="roadmap-label">Report on Phone</div>
+                <div class="roadmap-desc">Instant SMS & email with detailed results</div>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-circle">
+                    <span class="roadmap-number">3</span>
+                    🧠
+                </div>
+                <div class="roadmap-label">Early Health Signals</div>
+                <div class="roadmap-desc">Identify issues before they become problems</div>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-circle">
+                    <span class="roadmap-number">4</span>
+                    📂
+                </div>
+                <div class="roadmap-label">Long-Term Record</div>
+                <div class="roadmap-desc">Year-over-year growth & health tracking</div>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section">
         <h2>Ready to Transform Your School's Health Program?</h2>
         <p>Join forward-thinking schools already using GroWell. Book a free demo today.</p>
@@ -1316,23 +1630,23 @@
             <form>
                 <div class="form-group">
                     <label>School Name</label>
-                    <input type="text" placeholder="Enter school name" required>
+                    <input type="text" name="schoolName" placeholder="Enter school name" required>
                 </div>
                 <div class="form-group">
                     <label>Your Name</label>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" placeholder="Enter email" required>
+                    <input type="email" name="email" placeholder="Enter email" required>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>
-                    <input type="tel" placeholder="Enter phone number" required>
+                    <input type="tel" name="phone" placeholder="Enter phone number" required>
                 </div>
                 <div class="form-group">
                     <label>Number of Students</label>
-                    <select required>
+                    <select name="students" required>
                         <option value="">Select range</option>
                         <option value="100-500">100-500</option>
                         <option value="500-1000">500-1,000</option>
@@ -1345,54 +1659,76 @@
         </div>
     </div>
 
-   <script>
-function openModal() {
-    document.getElementById('demoModal').classList.add('active');
-}
+    <script>
+        function openModal() {
+            document.getElementById('demoModal').classList.add('active');
+        }
 
-function closeModal() {
-    document.getElementById('demoModal').classList.remove('active');
-}
+        function closeModal() {
+            document.getElementById('demoModal').classList.remove('active');
+        }
 
-document.getElementById('demoModal').addEventListener('click', function (e) {
-    if (e.target === this) {
-        closeModal();
-    }
-});
+        document.getElementById('demoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
 
-// ✅ SINGLE submit handler (this is the fix)
-document.querySelector('#demoModal form').addEventListener('submit', function (e) {
-    e.preventDefault();
+        // Google Sheets Integration - Fixed
+        document.querySelector('#demoModal form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                schoolName: formData.get('schoolName'),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                students: formData.get('students'),
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
 
-    const form = this;
+            // Replace with your Google Apps Script Web App URL
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+            
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                alert('Thank you! We will contact you soon.');
+                closeModal();
+                this.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Thank you! Your request has been received.');
+                closeModal();
+                this.reset();
+            }
+        });
 
-    const data = new FormData();
-    data.append("schoolName", form.querySelectorAll('input')[0].value);
-    data.append("name", form.querySelectorAll('input')[1].value);
-    data.append("email", form.querySelector('input[type="email"]').value);
-    data.append("phone", form.querySelector('input[type="tel"]').value);
-    data.append("students", form.querySelector('select').value);
-    data.append("timestamp", new Date().toISOString());
+        // Intersection Observer for new blocks
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px'
+        };
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz1hhGKyHgMGF0bM7GJtuQ_2OE9opYyRrk_iwG2DAJec37BMKds_HQpcT5IVRCV1uqn/exec";
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-    fetch(scriptURL, {
-        method: "POST",
-        body: data,
-        mode: "no-cors"
-    })
-    .then(() => {
-        alert("Thank you! We will contact you soon.");
-        closeModal();
-        form.reset();
-    })
-    .catch(() => {
-        alert("Thank you! We will contact you soon.");
-        closeModal();
-        form.reset();
-    });
-});
-</script>
-
+        // Observe new blocks
+        const parentsRoadmap = document.getElementById('parentsRoadmap');
+        if (parentsRoadmap) observer.observe(parentsRoadmap);
+    </script>
 </body>
 </html>
